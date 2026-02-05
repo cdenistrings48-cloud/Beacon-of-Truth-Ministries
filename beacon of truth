@@ -1,0 +1,204 @@
+import { motion } from "framer-motion";
+import {
+  Church,
+  Globe,
+  BookOpen,
+  Calendar,
+  HeartHandshake,
+  Phone,
+  Mail,
+  Download,
+} from "lucide-react";
+
+/* ------------------ */
+/* Safe UI Components */
+/* ------------------ */
+function Card({ children, className = "" }) {
+  return (
+    <div className={`bg-white border border-slate-200 ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+function CardContent({ children, className = "" }) {
+  return <div className={className}>{children}</div>;
+}
+
+function Button({ children, className = "", variant = "solid", as = "button", href }) {
+  const base =
+    "px-6 py-3 rounded-xl font-semibold transition inline-flex items-center justify-center gap-2";
+  const solid = "bg-amber-600 text-white hover:bg-amber-700";
+  const outline =
+    "border border-white text-white hover:bg-white hover:text-amber-600";
+
+  const classNames = `${base} ${variant === "outline" ? outline : solid} ${className}`;
+
+  if (as === "a") {
+    return (
+      <a href={href} className={classNames}>
+        {children}
+      </a>
+    );
+  }
+
+  return <button className={classNames}>{children}</button>;
+}
+
+/* ------------------ */
+/* Main Component     */
+/* ------------------ */
+export default function BeaconOfTruthWebsite() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-yellow-50 via-white to-slate-50 text-slate-800">
+
+      {/* Hero */}
+      <section className="bg-gradient-to-r from-yellow-600 to-amber-500 text-white">
+        <div className="max-w-6xl mx-auto px-6 py-24 text-center">
+          <motion.img
+            src="/images/beacon-logo.png"
+            alt="Beacon of Truth Ministries"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto mb-6 h-24 md:h-32"
+          />
+          <h1 className="text-4xl md:text-6xl font-extrabold">
+            Beacon of Truth Ministries
+          </h1>
+          <p className="mt-6 text-lg max-w-3xl mx-auto">
+            A light in the darkness — proclaiming Christ, defending truth, and transforming lives.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Button>Join the Mission</Button>
+            <Button variant="outline">Upcoming Crusades</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10">
+        <div>
+          <h2 className="text-3xl font-bold mb-4 text-amber-600">Who We Are</h2>
+          <p>
+            Beacon of Truth Ministries is an evangelistic and apostolic ministry committed to declaring
+            the undiluted gospel of Jesus Christ through crusades, missions, discipleship, and media outreach.
+          </p>
+        </div>
+
+        <Card className="rounded-2xl shadow-xl">
+          <CardContent className="p-6 space-y-3">
+            <p><strong>Vision:</strong> A global beacon illuminating nations with Christ’s truth.</p>
+            <p><strong>Mission:</strong> Preach, disciple, and demonstrate God’s love.</p>
+            <p><strong>Scripture:</strong> John 8:32</p>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Founder */}
+      <section className="bg-white py-20">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12 text-amber-600">
+            Founder & Lead Minister
+          </h2>
+
+          <Card className="rounded-2xl shadow-xl">
+            <CardContent className="p-8 grid md:grid-cols-2 gap-8">
+              <img
+                src="/images/founder.jpg"
+                alt="Evangelist Adriko Denis Calvin"
+                className="w-64 h-64 object-cover rounded-2xl mx-auto"
+              />
+
+              <div className="space-y-4">
+                <h3 className="text-2xl font-semibold">Evangelist Adriko Denis Calvin</h3>
+
+                <p className="text-slate-600 font-medium">
+                  Theologian • Evangelist • Preacher • Mentor • Vision Bearer
+                </p>
+
+                <p>
+                  Adriko Denis Calvin is a servant of God with a deep passion for Christ and His Gospel.
+                  As the vision bearer of Beacon of Truth Ministries–Uganda, he is committed to teaching sound doctrine,
+                  evangelizing the lost, and raising believers grounded in God’s Word.
+                </p>
+
+                <p>
+                  Beyond preaching, he serves as a sound engineer and instrumentalist, using every gift
+                  God has entrusted to him to glorify Christ and advance the Kingdom.
+                </p>
+
+                <p className="italic text-amber-700">
+                  John 17:17 — “Sanctify them by the truth; Your word is truth.”
+                </p>
+
+                <a
+                  href="/downloads/Beacon_of_Truth_Founder_Profile_and_Missions_2026.pdf"
+                  className="inline-block mt-4 text-amber-600 font-semibold underline"
+                >
+                  Download Full Founder Profile
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Partners & Donations */}
+      <section className="py-20 bg-amber-50">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-6 text-amber-700">Partner With Us</h2>
+
+          <p className="max-w-3xl mx-auto mb-8">
+            Beacon of Truth Ministries is expanding its evangelistic reach across Uganda and beyond.
+            We have willing laborers and open doors, but we need prayer partners and resource partners
+            to fully carry out the Great Commission.
+          </p>
+
+          <Card className="rounded-2xl shadow-lg max-w-3xl mx-auto">
+            <CardContent className="p-8 space-y-4 text-left">
+              <h3 className="text-xl font-semibold text-amber-600">Prayer & Support Request</h3>
+
+              <p>
+                Beginning this year, we are prayerfully seeking to collaborate with ministries such as
+                <strong> the Jesus Film Project</strong> to reach unreached and underserved communities
+                with the Gospel of Jesus Christ.
+              </p>
+
+              <p className="text-slate-700">
+                <strong>Jesus Film Vision:</strong> We believe visual storytelling is a powerful tool for
+                evangelism. Through the Jesus Film, we desire to present the life, death, and resurrection
+                of Jesus Christ in local languages, bringing the Gospel to villages and communities where
+                traditional preaching alone cannot easily reach.
+              </p>
+
+              <p>
+                While God has given us the manpower and the calling, we currently lack the financial and
+                material resources required for large-scale media evangelism and missions outreach.
+              </p>
+
+              <p>
+                We humbly invite partners to stand with us in prayer, financial support, and resource
+                mobilization as we pursue this vision.
+              </p>
+
+              <p className="italic text-amber-700">
+                “How beautiful are the feet of those who preach the good news.” — Romans 10:15
+              </p>
+            </CardContent>
+          </Card>
+
+          <div className="mt-8 flex justify-center gap-4 flex-wrap">
+            <Button>Become a Prayer Partner</Button>
+            <Button variant="outline">Support the Mission</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 text-center text-sm text-slate-500">
+        © {new Date().getFullYear()} Beacon of Truth Ministries. All rights reserved.
+      </footer>
+    </div>
+  );
+}
